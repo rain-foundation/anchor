@@ -146,10 +146,27 @@ pub struct Foo {
 pub struct Bar {
     pub authority: Pubkey, // 32
     pub data: u64,         // 8
+    pub bar_enum: BarEnum
 }
 
 impl Bar {
     pub const LEN: usize = 32 + 8;
+}
+
+#[derive(Copy, Clone)]
+pub enum BarEnum {
+    Hot(Hot),
+    Cold(Cold)
+}
+
+#[zero_copy]
+pub struct Hot {
+    r: u64
+}
+
+#[zero_copy]
+pub struct Cold {
+    r: u64
 }
 
 #[account(zero_copy)]
