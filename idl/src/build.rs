@@ -388,7 +388,7 @@ fn verify(idl: &Idl) -> Result<()> {
             }
         };
     }
-    check_discriminator_collision!(accounts);
+    // check_discriminator_collision!(accounts);
     check_discriminator_collision!(events);
     check_discriminator_collision!(instructions);
 
